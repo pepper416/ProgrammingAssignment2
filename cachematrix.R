@@ -43,24 +43,24 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Return a matrix that is the inverse of 'x'
 cacheSolve <- function(x, ...) {
-  # get the inverse of matrix 
+  ### get the inverse of matrix 
   i <- x$getinverse()
   
-  # check to see if the returned cache has anything in it 
+  ### check to see if the returned cache has anything in it 
   if(!is.null(i)) {
     message("getting cached data")
     return(i)
   }
   
-  # use get() subfunction to get matrix, and place it in a local variable "data"
+  ### use get() subfunction to get matrix, and place it in a local variable "data"
   data <- x$get()
   
-  # calculate the inverse of local variable "data"
+  ### calculate the inverse of local variable "data"
   i <- solve(data, ...)
   
-  # use setinverse() subfunction to set the inverse value calculated 
+  ### use setinverse() subfunction to set the inverse value calculated 
   x$setinverse(i)
   
-  # return the inverse matrix
+  ### return the inverse matrix
   i
 }
